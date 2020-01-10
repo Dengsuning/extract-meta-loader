@@ -1,6 +1,6 @@
 {
   "name": "extract-meta-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a webpack loader which is used to extract the meta infomation of file like markdown",
   "main": "index.js",
   "scripts": {

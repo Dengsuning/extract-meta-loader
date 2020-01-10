@@ -80,7 +80,7 @@ module.exports = function(content) {
         if (!loaderMap.has(options.dest)) {
             // 使用dest目标文件区分不同的extract-meta-loader 
             // 以此避免不同的loader共享全局变量(pathFileMap)产生的数据
-            loaderMap.add(options.dest, new Map())
+            loaderMap.set(options.dest, new Map())
         }
 
         // 提取文件元信息数据
