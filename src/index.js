@@ -2,6 +2,8 @@ let fs = require('fs'),
     util = require('loader-utils'),
     options = {},
     loaderMap = new Map()
+// import validateOptions from 'schema-utils';
+// import schema from "./options.json"
 
 /**
  * 使用String.match方法获取数据信息，并自动返回匹配的第一项（match可能返回的是一个数组）
@@ -71,12 +73,13 @@ const writeFile = (content) => {
     })
 }
 
-module.exports = function(content) {
+exports.default = function(content) {
     // !this.resourceQuery 这样用是因为我在配合vue-markdown-loader解析markdown文件时，貌似markdown-loader给资源文件传入了query参数
     // 使得文件的path变成xxx.md?vue&type=template&... 导致该资源loader了多次 具体原因我也没太弄懂 
     if (!this.resourceQuery) {
         options = util.getOptions(this) // 获取用户配置信息
 
+        // validateOptions(schema, options, 'extract-meta-loader');
         if (!loaderMap.has(options.dest)) {
             // 使用dest目标文件区分不同的extract-meta-loader 
             // 以此避免不同的loader共享全局变量(pathFileMap)产生的数据
@@ -95,7 +98,7 @@ module.exports = function(content) {
             metaList.push(item)
         }
         // 写入文件
-        writeFile(`export default ${JSON.stringify(metaList, null, 2)}`)
+        writeFile(`export default ${JSON.stringify(metaList, null, 4)}`)
     }
     // 当指定了需要删除元数据信息时  删除它们
     if (options.deleteMetaInfo) {

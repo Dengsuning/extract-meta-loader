@@ -1,0 +1,1 @@
+import test from './test/txts/test1.js'

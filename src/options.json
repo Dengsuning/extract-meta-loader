@@ -1,0 +1,31 @@
+{
+    "additionalProperties": true,
+    "properties": {
+        "dest": {
+            "description": "A filesystem path where the target file(s) will be placed.",
+            "type": "string"
+        },
+        "metasRegexps": {
+            "type": "object"
+        },
+        "wrapper": {
+            "description": "A Regular Expression which is the boundary character of metadata .",
+            "anyOf": [{
+                    "type": "string"
+                },
+                {
+                    "instanceof": "RegExp"
+                }
+            ]
+        },
+        "append": {
+            "description": "An append property to the metadata.",
+            "instanceof": "Function"
+        },
+        "deleteMetaInfo": {
+            "description": "should delete metadata.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

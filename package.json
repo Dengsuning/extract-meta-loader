@@ -1,10 +1,11 @@
 {
   "name": "extract-meta-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a webpack loader which is used to extract the meta infomation of file like markdown",
-  "main": "index.js",
+  "main": "src/cjs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/Dengsuning/extract-meta-loader/issues"
   },
-  "homepage": "https://github.com/Dengsuning/extract-meta-loader#readme"
+  "homepage": "https://github.com/Dengsuning/extract-meta-loader#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
 }
